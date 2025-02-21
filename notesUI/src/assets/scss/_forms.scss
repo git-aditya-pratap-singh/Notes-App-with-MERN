@@ -1,0 +1,41 @@
+.backDiv-background {
+    background-color: rgba(0, 0, 0, 0.29);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 2;
+
+    .forms-section {
+        background-color: #fff;
+        padding: 0.8rem;
+        position: relative;
+        animation: var(--animationSlide);
+        border-radius: 5px;
+
+        .crossIcons {
+            top: -15px;
+            right: -10px;
+            position: absolute;
+            background-color: rgb(231, 228, 228);
+            padding: 0.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        h2{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .btn-success{
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            width: 100%;
+            background-color: rgb(100, 97, 250);
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}

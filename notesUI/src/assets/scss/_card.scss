@@ -1,0 +1,32 @@
+.card-section{
+    padding: 1rem;
+    background-color: rgb(208, 207, 207);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    .card-header{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        h2{
+            font-size: 0.9rem;
+            font-weight: 600;
+            color:#434242
+        }
+        p{
+            font-size: 0.7rem;
+            color:#8a8888
+        }
+    }
+    .card-footer{
+        margin-top: 0.5rem;
+        padding-top: 0.5rem ;
+        border-top: 1px solid #b8b6b6;
+        display: flex;
+        justify-content: end;
+        gap: 1rem;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+}

@@ -1,0 +1,29 @@
+.backDiv-Banner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .login-section{
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        h2{
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        form{
+            margin-top: 0.5rem;
+            .btn-success{
+                margin-top: 0.5rem;
+                padding: 0.5rem;
+                width: 100%;
+                background-color: rgb(100, 97, 250);
+                border-radius: 5px;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
