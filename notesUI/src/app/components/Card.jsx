@@ -1,5 +1,6 @@
 import React from "react";
 import IconComponent from "../utils/IconComponents";
+import { notesDataFunc } from "../redux/Slices/StateSlice";
 import { useDispatch } from "react-redux";
 import { Edit_forms } from "../redux/Slices/StateSlice";
 import Apiauth from "../_api/auth.api";
@@ -9,7 +10,11 @@ const Card = ({_id, title, description})=>{
 
     const dispatch = useDispatch();
     const deleteNote = async(id)=>{
-        const apiResponse = await new Apiauth().DeleteNotes(id);        
+        const apiResponse = await new Apiauth().DeleteNotes(id);
+        if (apiResponse.status){
+            const getNotes = await new Apiauth().GetNotes();
+            dispatch(notesDataFunc(getNotes))
+        }       
     }
     
     return(

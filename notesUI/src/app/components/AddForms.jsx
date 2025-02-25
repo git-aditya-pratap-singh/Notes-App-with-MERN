@@ -1,6 +1,7 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
-import { Add_forms } from "../redux/Slices/StateSlice";
+import { Add_forms, notesDataFunc } from "../redux/Slices/StateSlice";
 import InputField from "./FormComponents/InputField";
 import TextAreaField from "./FormComponents/TextAreaField";
 import IconComponent from "../utils/IconComponents";
@@ -22,8 +23,12 @@ const AddForms = () => {
 
         // API- Calling
         const apiResponse = await new Apiauth().AddNotes(objFormData);
-        if (apiResponse.status) 
-            dispatch(Add_forms(false))
+        if (apiResponse.status){
+            dispatch(Add_forms(false));
+            const getNotes = await new Apiauth().GetNotes();
+            dispatch(notesDataFunc(getNotes))
+        }
+            
         
     }
 

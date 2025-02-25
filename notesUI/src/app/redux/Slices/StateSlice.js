@@ -9,7 +9,8 @@ const StateSlice = createSlice({
             id: null,
             title: null,
             description: null
-        }
+        },
+        notesData: null,
     },
     reducers: {
         Add_forms: (state, action) => {
@@ -24,8 +25,11 @@ const StateSlice = createSlice({
                 description
             };
         },
+        notesDataFunc: (state, action)=>{
+            state.notesData = action.payload;
+        }
     }
 })
 
 export default StateSlice;
-export const { Add_forms, Edit_forms } = StateSlice.actions;
+export const { Add_forms, Edit_forms, notesDataFunc } = StateSlice.actions;

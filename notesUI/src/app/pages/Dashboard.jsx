@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import { useLoaderData } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../components/NavBar";
@@ -6,15 +6,20 @@ import Card from "../components/Card";
 import AddForms from "../components/AddForms";
 import EditForms from "../components/EditForms";
 import IconComponent from "../utils/IconComponents";
-import { Add_forms } from "../redux/Slices/StateSlice";
+import { Add_forms,notesDataFunc } from "../redux/Slices/StateSlice";
 import "../../assets/scss/_dashboard.scss";
 
 const Dashboard = () => {
-    const fetchItems = useLoaderData() || [];
+
+    const fetchItem = useLoaderData() || [];
     const dispatch = useDispatch();
     const AddformState = useSelector((store) => store.openPopup.addForms);
     const EditformState = useSelector((store) => store.openPopup.editForms);
-    
+    const fetchItems = useSelector((store) => store.openPopup.notesData) || [];
+
+    useEffect(()=>{
+        dispatch(notesDataFunc(fetchItem));
+    },[])
 
     return (
         <section>

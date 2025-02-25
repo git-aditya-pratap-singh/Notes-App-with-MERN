@@ -43,6 +43,15 @@ class Apiauth extends BaseControllerResponse {
         }
     }
 
+    GetNotes = async()=>{
+        try {
+            const response = await new ApiService().get('/dashboard/getNotesList');
+            return response.status === true ? response.data : null;
+        }catch (err) {
+            return this.handleResponse(err);
+        }
+    }
+
 }
 
 export default Apiauth;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Edit_forms } from "../redux/Slices/StateSlice";
+import { Edit_forms, notesDataFunc } from "../redux/Slices/StateSlice";
 import InputField from "./FormComponents/InputField";
 import TextAreaField from "./FormComponents/TextAreaField";
 import IconComponent from "../utils/IconComponents";
@@ -31,10 +31,12 @@ const EditForms = () => {
         if (!formData.title) return toast.error("Title should not be blank!");
         if (!formData.description) return toast.error("Description should not be blank!");
 
-        // ✅ API Call
         const apiResponse = await new Apiauth().EditNotes(editFormState.id, formData);
-        if (apiResponse.status)
+        if (apiResponse.status){
             dispatch(Edit_forms({ status: false, id: null, title: null, description: null })); 
+            const getNotes = await new Apiauth().GetNotes();
+            dispatch(notesDataFunc(getNotes)) 
+        } 
     };
 
     useEffect(() => {
